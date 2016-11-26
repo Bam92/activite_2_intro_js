@@ -4,11 +4,14 @@ Activité : gestion des contacts par Abel Lifaefi Mbula alias Bam92
 
 // TODO : complétez le programme
 console.log ("Bienvenur dans le gestionnaire des contacts!");
+console.log ("1. Lister les contacts");
+    console.log ("2. Ajouter un contact");
+    console.log ("0. Quitter");
 
-var userChoice = 0; //Le choix de l'utilisateur sera stocke ici
+var userChoice; //Le choix de l'utilisateur sera stocke ici
 
 //Boucle pour demander le choix de l'utilisateur
-while (userChoice > 0 && userChoice <= 2) {
+while (userChoice !== 0) {
     userChoice = Number (prompt("Que voulez vous ?"));
     console.log ("1. Lister les contacts");
     console.log ("2. Ajouter un contact");
@@ -18,7 +21,7 @@ while (userChoice > 0 && userChoice <= 2) {
         console.log("Desolé, je ne sais pas déviner votre choix!\n"+
                     "Veillez choisir une valeur entre 0 et 2");
     }
-}
+
     var Contact = {
     // Initialisation
     init: function (prenom, nom) {
@@ -53,7 +56,7 @@ contacts.push (contact2);
             console.log (contact.decrire());
         });
     //Si le choix est 2    
-    } else {//Ajouter un nouveau contact
+    } if (userChoice === 2) {//Ajouter un nouveau contact
         var prenom = prompt ("Entrez le prenom:");
         var nom = prompt ("Entrez le nom:");
         
@@ -68,5 +71,9 @@ contacts.push (contact2);
             console.log (contact.decrire());
         });
     }
-
+    
+    if (userChoice === 0) {
+        console.log ("Bye");
+    }
+}
 
